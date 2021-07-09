@@ -12,10 +12,10 @@
 <body class="bg-gray-100">
     <nav class="p-6 bg-white flex justify-between mb-4">
         <ul class="flex items-center">
-            <li><a class="p-3" href="">Home</a>
+            <li><a class="p-3" href="/">Home</a>
             </li>
-            <li> <a class="p-3" href="">Dashbord</a></li>
-            <li><a class="p-3" href="">Post</a></li>
+            <li> <a class="p-3" href="{{ route('dashboard') }}">Dashbord</a></li>
+            <li><a class="p-3" href="{{ route('posts') }}">Post</a></li>
 
         </ul>
 

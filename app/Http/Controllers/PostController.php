@@ -50,4 +50,41 @@ class PostController extends Controller
 
         return back();
     }
+
+    // function update($body)
+    // {
+    //     $data = Post::find($body);
+    //     return view(
+    //         'posts.edite',
+    //         [
+    //             'data' => $data
+    //         ]
+    //     );
+    // }
+
+    // function UPD(Request $req)
+    // {
+    //     $data = Post::find($req->body);
+    //     $data->save();
+    //     return redirect('dashboard');
+    // }
+
+    public function edite(Post $post)
+    {
+
+        return view('posts.edite', ['post' => $post]);
+    }
+
+    public function update(Post $post)
+    {
+        request()->validate([
+            'content' => 'required',
+        ]);
+
+        $post->update([
+            'body' => request('content'),
+        ]);
+
+        return redirect('/posts');
+    }
 }

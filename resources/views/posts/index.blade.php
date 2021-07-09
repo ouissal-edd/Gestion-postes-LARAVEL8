@@ -38,6 +38,12 @@
                     <button type="submit" class="text-blue-500 ">Delete</button>
                 </form>
             </div>
+
+            <div>
+                <form method="get" action="{{route('posts.edite',$post)}}">
+                    <button type="submit" class="text-blue-500 ">Modifier</button>
+                </form>
+            </div>
             @endif
 
 

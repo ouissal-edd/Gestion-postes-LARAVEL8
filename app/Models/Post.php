@@ -23,4 +23,10 @@ class Post extends Model
     {
         return $user->id === $this->user_id;
     }
+
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

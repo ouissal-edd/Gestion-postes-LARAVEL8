@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 
 
@@ -33,3 +34,10 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.
 
 Route::get('/posts/{post}/edite', [PostController::class, 'edite'])->name('posts.edite');
 Route::put('/posts/{post}', [PostController::class, 'update']);
+
+Route::get('/comments', [CommentController::class, 'index'])->name('comments');
+Route::post('/comments', [CommentController::class, 'store']);
+
+// admin
+
+Route::get('/dashAdmin', [DashboardController::class, 'dashAdmin'])->name('dashAdmin')->middleware('is_admin');

@@ -30,9 +30,10 @@ class PostController extends Controller
         ]);
 
         $request->user()->posts()->create($request->only('body'));
-
         return back();
     }
+
+
 
     public function destroy(Post $post)
     {

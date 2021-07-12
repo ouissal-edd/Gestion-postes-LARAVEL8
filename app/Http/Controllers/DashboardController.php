@@ -17,4 +17,9 @@ class DashboardController extends Controller
     {
         return view('dashboard');
     }
+
+    public function dashAdmin()
+    {
+        return view('dashAdmin');
+    }
 }

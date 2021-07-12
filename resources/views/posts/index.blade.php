@@ -22,6 +22,7 @@
             </div>
 
         </form>
+
         @if ($posts->count())
         @foreach ($posts as $post)
         <div class="mb-4">
@@ -29,6 +30,8 @@
             <span class="text-gray-600 text-sm">{{$post->created_at->diffForHumans()}}</span>
             <p class="mb-2">{{$post->body}}</p>
 
+
+            @auth
 
             @if($post->ownedBy(auth()->user()))
             <div>
@@ -45,7 +48,7 @@
                 </form>
             </div>
             @endif
-
+            @endauth
 
             @endforeach
             {{$posts->links()}}

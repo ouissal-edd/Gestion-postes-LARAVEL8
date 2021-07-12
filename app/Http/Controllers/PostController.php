@@ -7,10 +7,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware(['auth'])->only(['store', 'destroy']);
-    // }
+
 
     public function index()
     {
@@ -24,12 +21,7 @@ class PostController extends Controller
         );
     }
 
-    // public function show(Post $post)
-    // {
-    //     return view('posts.show', [
-    //         'post' => $post
-    //     ]);
-    // }
+
 
     public function store(Request $request)
     {
@@ -51,23 +43,6 @@ class PostController extends Controller
         return back();
     }
 
-    // function update($body)
-    // {
-    //     $data = Post::find($body);
-    //     return view(
-    //         'posts.edite',
-    //         [
-    //             'data' => $data
-    //         ]
-    //     );
-    // }
-
-    // function UPD(Request $req)
-    // {
-    //     $data = Post::find($req->body);
-    //     $data->save();
-    //     return redirect('dashboard');
-    // }
 
     public function edite(Post $post)
     {

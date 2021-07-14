@@ -42,7 +42,12 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->user()->comments()->create($request->only('corp'));
+        $request->user()->comments()->create([
+            'corp' => $request->corp,
+            'post_id' => $request->id_post,
+
+        ]);
+        // dd($request->id_post);
 
         return back();
     }

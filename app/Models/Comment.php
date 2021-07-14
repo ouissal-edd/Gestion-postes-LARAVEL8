@@ -10,6 +10,7 @@ class Comment extends Model
     use HasFactory;
     protected $fillable = [
         'corp',
+        'post_id'
     ];
     public function user()
     {

@@ -36,8 +36,24 @@
 
 
                 @auth
+                @if($post->ownedBy(auth()->user()))
+                <div>
+                    <div>
+                        <form action="{{route('posts.destroy',$post)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="bg-red-500 text-white px-6 py-2 rounded font-medium mb-3" type="submit">Delete</button>
+                        </form>
+                    </div>
+                    <div>
+                        <form method="get" action="{{route('posts.edite',$post)}}">
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium mb-6 ">Modifier</button>
+                        </form>
+                    </div>
+                </div>
 
-                @if($post->ownedBy(auth()->user()) || auth()->user()->is_admin === 1)
+
+                @elseif( auth()->user()->is_admin === 1)
                 <div>
                     <div>
                         <form action="{{route('posts.destroy',$post)}}" method="post">
@@ -46,13 +62,10 @@
                             <button class="bg-red-500 text-white px-4 py-2 rounded font-medium mb-3" type="submit">Delete</button>
                         </form>
                     </div>
-                    @elseif( $post->ownedBy(auth()->user()) )
-                    <div>
-                        <form method="get" action="{{route('posts.edite',$post)}}">
-                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium mb-6 mx-3">Modifier</button>
-                        </form>
-                    </div>
+
+
                 </div>
+
 
                 @endif
                 @endauth
@@ -61,6 +74,7 @@
                 <div>
                     <form action="{{route('comments')}}" method="post">
                         @csrf
+                        <input type="hidden" name="id_post" value="{{$post->id}}">
                         <textarea name="corp" cols="10" rows="2" class="bg-gray-100 border-2 w-full p-2 rounded-lg  border-black-500 " placeholder="Post something!"></textarea>
                         <div>
                             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium">Comments</button>

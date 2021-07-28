@@ -37,7 +37,6 @@ Route::put('/posts/{post}', [PostController::class, 'update']);
 
 Route::get('/comments', [CommentController::class, 'index'])->name('comments');
 Route::post('/comments', [CommentController::class, 'store']);
-
 // admin
 
 Route::get('/dashAdmin', [DashboardController::class, 'dashAdmin'])->name('dashAdmin')->middleware('is_admin');

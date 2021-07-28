@@ -34,7 +34,6 @@
                 <span class="text-gray-600 text-sm">{{$post->created_at->diffForHumans()}}</span>
                 <p class="mb-2">{{$post->body}}</p>
 
-
                 @auth
                 @if($post->ownedBy(auth()->user()))
                 <div>
@@ -66,7 +65,6 @@
 
                 </div>
 
-
                 @endif
                 @endauth
                 <!-- divv ajouter pour comeeeent -->
@@ -84,10 +82,14 @@
 
 
                 </div>
+
+
             </div>
 
             <!-- ennnnnnnnnnnnnnnnnnnnnnnnd -->
             @endforeach
+
+
             {{$posts->links()}}
             @else
             <p>There are no posts</p>

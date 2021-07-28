@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -15,7 +17,7 @@ class CommentController extends Controller
     public function index()
     {
         $comments = Comment::latest()->with(['user'])->paginate(3);
-
+        dd($comments);
         return view(
             'comments.index',
             [
@@ -23,6 +25,11 @@ class CommentController extends Controller
             ]
         );
     }
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -52,16 +59,7 @@ class CommentController extends Controller
         return back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Comment $comment)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.

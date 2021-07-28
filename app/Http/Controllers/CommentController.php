@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
-use App\Models\Post;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -14,21 +12,6 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $comments = Comment::latest()->with(['user'])->paginate(3);
-        dd($comments);
-        return view(
-            'comments.index',
-            [
-                'comments' => $comments
-            ]
-        );
-    }
-
-
-
-
 
 
     /**
